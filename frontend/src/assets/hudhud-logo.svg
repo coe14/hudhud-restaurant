@@ -1,0 +1,48 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F3D99A"/>
+      <stop offset="100%" stop-color="#B9954F"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" rx="24" fill="#123D30"/>
+
+  <!-- Islamic arch -->
+  <path d="M300 265 V190 Q450 15 600 190 V265"
+        fill="none" stroke="url(#gold)" stroke-width="5"/>
+  <path d="M315 265 V195 Q450 45 585 195 V265"
+        fill="none" stroke="#D6B779" stroke-width="1.5" opacity=".6"/>
+
+  <!-- Stylized hoopoe bird -->
+  <g fill="url(#gold)">
+    <path d="M390 200 Q355 165 375 125 Q383 153 400 163
+             Q393 130 415 105 Q416 143 433 158
+             Q442 128 465 115 Q454 154 454 170
+             Q495 153 525 180 Q493 175 472 195
+             Q449 217 421 214 Q400 213 390 200Z"/>
+    <path d="M410 190 Q455 170 493 191 Q465 202 437 226
+             Q421 239 399 228 Q415 215 410 190Z"/>
+    <path d="M438 213 Q472 224 510 213 Q481 240 444 237
+             Q421 237 402 226Z" opacity=".8"/>
+    <path d="M520 180 L562 168 L530 190Z"/>
+    <circle cx="476" cy="180" r="3" fill="#123D30"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="450" y="335" text-anchor="middle"
+        font-family="Georgia, serif" font-size="82"
+        letter-spacing="9" fill="url(#gold)">HUDHUD</text>
+
+  <path d="M245 365 H655" stroke="#D6B779" stroke-width="1.5"/>
+
+  <text x="450" y="405" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="25"
+        letter-spacing="7" fill="#F7F3E9">ISLAMIC RESTAURANT</text>
+
+  <text x="450" y="465" text-anchor="middle"
+        font-family="Georgia, serif" font-size="20"
+        font-style="italic" letter-spacing="1"
+        fill="#D6B779">A Taste of Tradition, A Touch of Elegance</text>
+</svg>
