@@ -23,9 +23,9 @@ export const Hero = ({ lang = "am" }: HeroProps) => {
     menuBtn: { am: "ሜኑ ይመልከቱ", en: "View Menu", ar: "عرض القائمة" },
     contactBtn: { am: "ያግኙን (Contact Us)", en: "Contact Us", ar: "اتصل بنا" },
     branchTitle: {
-      am: "Dessie & Mekaneselam",
-      en: "Dessie & Mekaneselam",
-      ar: "ديسي ومكانيسلام",
+      am: "Addis Ababa & Dessie",
+      en: "Addis Ababa & Dessie",
+      ar: "أديس أبابا وديسي",
     },
     branchSub: {
       am: "ዋና ቅርንጫፎቻችን",
@@ -45,7 +45,10 @@ export const Hero = ({ lang = "am" }: HeroProps) => {
   };
 
   return (
-    <section className="relative bg-[#121212] text-white py-12 lg:py-24 overflow-hidden border-b border-[#d4af37]/20">
+    <section
+      id="home"
+      className="relative bg-[#121212] text-white py-12 lg:py-24 overflow-hidden border-b border-[#d4af37]/20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ዴስክቶፕ ላይ ጎን ለጎን, ሞባይል ላይ አንዱ ከሌላው በታች */}
         <div

@@ -200,7 +200,7 @@ export const Footer = ({ lang = "am" }: FooterProps) => {
                 href="https://wa.me/251914081065"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#133c2c] border border-[#d4af37]/40 flex items-center justify-center text-[#d4af37] hover:bg-[#d4af37] hover:text-[#133c2c] transition-all"
+                className="w-10 h-10 rounded-full bg-[#133c2c] border border-[#d4af37]/40 flex items-center justify-center text-[#d4af37] hover:bg-[#d4af37] hover:text-[#121212] transition-all"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />

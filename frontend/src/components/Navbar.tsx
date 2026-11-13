@@ -5,9 +5,17 @@ interface NavbarProps {
   cartCount?: number;
   lang: "am" | "en" | "ar";
   setLang: (lang: "am" | "en" | "ar") => void;
+  currentPage: "home" | "menu" | "about" | "contact";
+  setCurrentPage: (page: "home" | "menu" | "about" | "contact") => void;
 }
 
-export const Navbar = ({ cartCount = 0, lang, setLang }: NavbarProps) => {
+export const Navbar = ({
+  cartCount = 0,
+  lang,
+  setLang,
+  currentPage,
+  setCurrentPage,
+}: NavbarProps) => {
   const t = {
     am: {
       home: "መነሻ",
@@ -36,40 +44,62 @@ export const Navbar = ({ cartCount = 0, lang, setLang }: NavbarProps) => {
     <header className="sticky top-0 z-50 bg-[#133c2c] shadow-lg border-b border-[#d4af37]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center focus:outline-none">
+        <button
+          onClick={() => setCurrentPage("home")}
+          className="flex items-center focus:outline-none cursor-pointer bg-transparent border-none"
+        >
           <img
             src={logo}
             alt="Hudhud Islamic Restaurant"
             className="h-20 w-auto object-contain py-1 transition-transform duration-300 hover:scale-105"
           />
-        </a>
+        </button>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="#home"
-            className="text-[#d4af37] font-semibold text-sm tracking-wider uppercase border-b-2 border-[#d4af37] pb-1"
+          <button
+            onClick={() => setCurrentPage("home")}
+            className={`font-semibold text-sm tracking-wider uppercase transition-colors cursor-pointer bg-transparent border-none pb-1 ${
+              currentPage === "home"
+                ? "text-[#d4af37] border-b-2 border-[#d4af37]"
+                : "text-[#faf5ef]/90 hover:text-[#d4af37]"
+            }`}
           >
             {t[lang].home}
-          </a>
-          <a
-            href="#menu"
-            className="text-[#faf5ef]/90 hover:text-[#d4af37] font-medium text-sm tracking-wider uppercase transition-colors"
+          </button>
+
+          <button
+            onClick={() => setCurrentPage("menu")}
+            className={`font-semibold text-sm tracking-wider uppercase transition-colors cursor-pointer bg-transparent border-none pb-1 ${
+              currentPage === "menu"
+                ? "text-[#d4af37] border-b-2 border-[#d4af37]"
+                : "text-[#faf5ef]/90 hover:text-[#d4af37]"
+            }`}
           >
             {t[lang].menu}
-          </a>
-          <a
-            href="#about"
-            className="text-[#faf5ef]/90 hover:text-[#d4af37] font-medium text-sm tracking-wider uppercase transition-colors"
+          </button>
+
+          <button
+            onClick={() => setCurrentPage("about")}
+            className={`font-semibold text-sm tracking-wider uppercase transition-colors cursor-pointer bg-transparent border-none pb-1 ${
+              currentPage === "about"
+                ? "text-[#d4af37] border-b-2 border-[#d4af37]"
+                : "text-[#faf5ef]/90 hover:text-[#d4af37]"
+            }`}
           >
             {t[lang].about}
-          </a>
-          <a
-            href="#contact"
-            className="text-[#faf5ef]/90 hover:text-[#d4af37] font-medium text-sm tracking-wider uppercase transition-colors"
+          </button>
+
+          <button
+            onClick={() => setCurrentPage("contact")}
+            className={`font-semibold text-sm tracking-wider uppercase transition-colors cursor-pointer bg-transparent border-none pb-1 ${
+              currentPage === "contact"
+                ? "text-[#d4af37] border-b-2 border-[#d4af37]"
+                : "text-[#faf5ef]/90 hover:text-[#d4af37]"
+            }`}
           >
             {t[lang].contact}
-          </a>
+          </button>
         </nav>
 
         {/* Language Switcher & Cart */}
