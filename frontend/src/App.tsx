@@ -1,15 +1,24 @@
+import { useState } from "react";
 import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { Footer } from "./components/Footer";
 
-function App() {
+export function App() {
+  const [lang, setLang] = useState<"am" | "en" | "ar">("am");
+
   return (
-    <div className="min-h-screen bg-[#faf5ef] text-[#121212] font-sans">
-      <Navbar />
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center">
-        <h2 className="text-3xl font-bold text-[#121212] mb-4">
-          የሁدهድ ሬስቶራንት ናቭባር በስኬት ተሰራ!
-        </h2>
-        <p className="text-stone-600">ናቭባሩ ከሎጎው እና ከከለሩ ጋር ሙሉ በሙሉ ተስተካክሏል።</p>
-      </div>
+    <div
+      className={`min-h-screen bg-[#faf5ef] text-[#121212] font-sans ${lang === "ar" ? "rtl" : "ltr"}`}
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
+      {/* 1. Navbar with Language Switcher */}
+      <Navbar lang={lang} setLang={setLang} cartCount={0} />
+
+      {/* 2. Hero Section */}
+      <Hero lang={lang} />
+
+      {/* 3. Footer with Addresses and Social Links */}
+      <Footer lang={lang} />
     </div>
   );
 }

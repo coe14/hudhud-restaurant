@@ -1,15 +1,13 @@
-import { useState } from "react";
 import { ShoppingBag, Globe } from "lucide-react";
 import logo from "../assets/hudhud-logo.svg";
 
 interface NavbarProps {
   cartCount?: number;
+  lang: "am" | "en" | "ar";
+  setLang: (lang: "am" | "en" | "ar") => void;
 }
 
-export const Navbar = ({ cartCount = 0 }: NavbarProps) => {
-  const [lang, setLang] = useState<"am" | "en" | "ar">("am");
-
-  // የቋንቋ ትርጉሞች (Translations for Links)
+export const Navbar = ({ cartCount = 0, lang, setLang }: NavbarProps) => {
   const t = {
     am: {
       home: "መነሻ",
@@ -37,7 +35,7 @@ export const Navbar = ({ cartCount = 0 }: NavbarProps) => {
   return (
     <header className="sticky top-0 z-50 bg-[#133c2c] shadow-lg border-b border-[#d4af37]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
-        {/* 1. ሎጎው (Logo) */}
+        {/* Logo */}
         <a href="/" className="flex items-center focus:outline-none">
           <img
             src={logo}
@@ -46,7 +44,7 @@ export const Navbar = ({ cartCount = 0 }: NavbarProps) => {
           />
         </a>
 
-        {/* 2. ሊንኮች (Navigation Links - Home, Menu, About, Contact) */}
+        {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
           <a
             href="#home"
@@ -74,29 +72,28 @@ export const Navbar = ({ cartCount = 0 }: NavbarProps) => {
           </a>
         </nav>
 
-        {/* 3. የቋንቋ መቀየሪያ እና የጋሪ ቁልፍ (Language Switcher & Cart) */}
+        {/* Language Switcher & Cart */}
         <div className="flex items-center gap-4">
-          {/* Language Switcher Dropdown / Buttons */}
+          {/* Language Switcher */}
           <div className="flex items-center bg-[#0d2a1f] border border-[#d4af37]/40 rounded-full p-1 text-xs text-[#faf5ef]">
             <Globe className="w-4 h-4 text-[#d4af37] ml-2 mr-1" />
-
+            <button
+              onClick={() => setLang("am")}
+              className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === "am" ? "bg-[#d4af37] text-[#133c2c] font-bold" : "hover:text-[#d4af37]"}`}
+            >
+              አማ
+            </button>
             <button
               onClick={() => setLang("en")}
-              className={`px-2 py-1 rounded-full transition-colors ${lang === "en" ? "bg-[#d4af37] text-[#133c2c] font-bold" : "hover:text-[#d4af37]"}`}
+              className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === "en" ? "bg-[#d4af37] text-[#133c2c] font-bold" : "hover:text-[#d4af37]"}`}
             >
               EN
             </button>
             <button
               onClick={() => setLang("ar")}
-              className={`px-2 py-1 rounded-full transition-colors ${lang === "ar" ? "bg-[#d4af37] text-[#133c2c] font-bold" : "hover:text-[#d4af37]"}`}
+              className={`px-2.5 py-1 rounded-full transition-all cursor-pointer ${lang === "ar" ? "bg-[#d4af37] text-[#133c2c] font-bold" : "hover:text-[#d4af37]"}`}
             >
               عربي
-            </button>
-            <button
-              onClick={() => setLang("am")}
-              className={`px-2 py-1 rounded-full transition-colors ${lang === "am" ? "bg-[#d4af37] text-[#133c2c] font-bold" : "hover:text-[#d4af37]"}`}
-            >
-              አማ
             </button>
           </div>
 
